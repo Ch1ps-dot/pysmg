@@ -1,0 +1,7 @@
+<datamodel>
+    <method type="strings" value="GET|POST|PUT"/>
+    <b type="string" value=" "/>
+    <url type="string" value="www.baidu.com"/>
+    <b type="string" value=" "/>
+    <version type="string" value="HTTP/1.1"/>
+</datamodel>
