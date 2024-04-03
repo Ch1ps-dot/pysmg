@@ -1,0 +1,8 @@
+<datamodel>
+    <sheader type="set">
+        <types type="bits" value="4:[0x1~0xe]"/>
+        <flags type="function" value="mqtt_map:[types-flags]"/>
+    </sheader>
+    <vheader type="set">
+    </vheader>
+</datamodel>
