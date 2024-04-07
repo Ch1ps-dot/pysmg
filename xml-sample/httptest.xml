@@ -1,11 +1,15 @@
-<datamodel>
-    <method type="strings" value="GET|POST|PUT"/>
-    <b type="string" value=" "/>
-    <url type="string" value="www.baidu.com"/>
-    <b type="string" value=" "/>
-    <version type="string" value="HTTP/1.1"/>
-    <b type='bits' value="4:[0x0-0xA]"/>
-    <b type='bits' value="2:[0x1-0x2]"/>
-    <b type="bits" value="2:[0x0-0x3]"/>
-    <func type="function" value="add:[1][2]"/>
-</datamodel>
+<SMG>
+    <text>
+        <method type="strings" value="GET|POST|PUT"/>
+        <b type="string" value=" "/>
+        <url type="string" value="www.baidu.com"/>
+        <b type="string" value=" "/>
+        <version type="string" value="HTTP/1.1"/>
+        <b type='bits' value="4:[0x0-0xA]"/>
+        <b type='bits' value="2:[0x1-0x2]"/>
+        <b type="bits" value="2:[0x0-0x3]"/>
+        <func type="function" value="add:[1][2]"/>
+    </text>
+    <data>
+    </data>
+</SMG>

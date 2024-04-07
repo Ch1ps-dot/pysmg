@@ -1,8 +1,49 @@
-<datamodel>
-    <sheader type="set">
-        <types type="bits" value="4:[0x1~0xe]"/>
-        <flags type="function" value="mqtt_map:[types-flags]"/>
-    </sheader>
-    <vheader type="set">
-    </vheader>
-</datamodel>
+<SMG>
+    <text>
+        <sheader ntype="set">
+            <types ntype="bits" value="4:[0x1~0x4]"/>
+            <flags ntype="function" value="mqtt_map:[types-flags]"/>
+            <rlength ntype="function" value="mqtt_length:[vheader][payload]"/>
+        </sheader>
+        <vheader ntype="function" value="mqtt_vheader:[types][vheader]"/>
+        <payload ntype="set">
+            <s1 ntype="string" value="Hello"/>
+            <s2 ntype="string" value="Hello"/>
+            <s3 ntype="string" value="Hello"/>
+            <s4 ntype="string" value="Hello"/>
+            <s5 ntype="string" value="Hello"/>
+            <s6 ntype="string" value="Hello"/>
+        </payload>
+    </text>
+    <priority value="[mqtt_map][mqtt_vheader][mqtt_length]"/>
+    <data>
+        <connect ntype="set">
+            <cs ntype="string" value="connect"/>
+        </connect>
+        <connack>
+            <ck ntype="string" value="connack"/>
+        </connack>
+        <publish>
+            <ph ntype="string" value="publish"/>
+        </publish>
+        <puback>
+            <pk ntype="string" value="puback">
+        </puback>
+        <pubrel>
+        </pubrel>
+        <pubcomp>
+        </pubcomp>
+        <subscribe>
+        </subscribe>
+        <unsubscribe>
+        </unsubscribe>
+        <unsuback>
+        </unsuback>
+        <pingreq>
+        </pingreq>
+        <pingresp>
+        </pingresp>
+        <disconnect>
+        </disconnect>
+    </data>
+</SMG>

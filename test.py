@@ -1,5 +1,6 @@
 from smg import Smg
 from types import MethodType
+from lxml import etree
 
 def add(self, b):
     print(b[0]+b[1])
@@ -10,24 +11,9 @@ o = open("out",'+bw')
 src = f.read()
 p = Smg()
 p.fromstring(src)
-p.output(o)
-# o.close()
-# o = open("out",'rb')
-# p.send('127.0.0.1','12345',o)
+p.gen(o)
 
-# class T:
-#     def __init__(self):
-#         pass
+# root = etree.fromstring(src)
+# b = root.find('.//sheader')
+# print(b.getparent())
 
-#     def check(self, name):
-#         if(hasattr(self, name)):
-#             func = self.__getattribute__(name)
-#             func()
-
-# def say(self):
-#     print("Hi")
-
-# t = T()
-# setattr(t, 'say', None)
-# t.say = MethodType(say,t)
-# t.check('say')
