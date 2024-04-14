@@ -1,49 +1,67 @@
 <SMG>
     <text>
         <sheader ntype="set">
-            <types ntype="bits" value="4:[0x1~0x4]"/>
-            <flags ntype="function" value="mqtt_map:[types-flags]"/>
-            <rlength ntype="function" value="mqtt_length:[vheader][payload]"/>
+            <types ntype="bits" dtype='b' value="4:2"/>
+            <flags ntype="function" dtype="U" value="mqtt_map_func:[types]"/>
+            <rlength ntype="function" dtype="U" value="mqtt_length_func:[vheader]"/>
         </sheader>
-        <vheader ntype="function" value="mqtt_vheader:[types][vheader]"/>
-        <payload ntype="set">
-            <s1 ntype="string" value="Hello"/>
-            <s2 ntype="string" value="Hello"/>
-            <s3 ntype="string" value="Hello"/>
-            <s4 ntype="string" value="Hello"/>
-            <s5 ntype="string" value="Hello"/>
-            <s6 ntype="string" value="Hello"/>
-        </payload>
+        <vheader ntype="function" dtype="R" value="mqtt_vheader_ref:[types]"/>
     </text>
-    <priority value="[mqtt_map][mqtt_vheader][mqtt_length]"/>
     <data>
         <connect ntype="set">
-            <cs ntype="string" value="connect"/>
+            <ct_protocol_name ntype="set">
+                <lmsb ntype="bytes" dtype="B" value="1:0x0"/>
+                <llsb ntype="bytes" dtype="B" value="1:0x4"/>
+                <mqttflag ntype="string" dtype="B" value="MQTT"/>
+            </ct_protocol_name>
+            <ct_protocol_level ntype="bytes" dtype="B" value="1:0x4"/>
+            <ct_connect_flag ntype="bits" dtype="b" value="8:0b100"/>
+            <ct_keep_alive ntype="bytes" dtype="B" value="2:[0x0~0xff]"/>
+            <ct_connect_payload ntype="set">
+            </ct_connect_payload>
         </connect>
-        <connack>
-            <ck ntype="string" value="connack"/>
+
+        <connack ntype="set">
+            <ck_protocol_name ntype="set">
+                <ck_lmsb ntype="bytes" dtype="B" value="1:0x0"/>
+                <ck_llsb ntype="bytes" dtype="B" value="1:0x4"/>
+                <ck_mqttflag ntype="string" dtype="B" value="MQTT"/>
+            </ck_protocol_name>
+            <ck_protocol_level ntype="bytes" dtype="B" value="1:0x4"/>
+            <ck_flags ntype="bits" dtype="b" value="8:[0~1]"/>
+            <ck_returncode ntype="function" dtype="U" value="ck_returncode:[ck_flags]"/>
         </connack>
-        <publish>
+
+        <publish ntype="set">
             <ph ntype="string" value="publish"/>
         </publish>
-        <puback>
-            <pk ntype="string" value="puback">
+
+        <puback ntype="set">
+            <pk ntype="string" value="puback"/>
         </puback>
-        <pubrel>
+
+        <pubrel ntype="set">
         </pubrel>
-        <pubcomp>
+
+        <pubcomp ntype="set">
         </pubcomp>
-        <subscribe>
+
+        <subscribe ntype="set">
         </subscribe>
-        <unsubscribe>
+
+        <unsubscribe ntype="set">
         </unsubscribe>
-        <unsuback>
+
+        <unsuback ntype="set">
         </unsuback>
-        <pingreq>
+
+        <pingreq ntype="set">
         </pingreq>
-        <pingresp>
+
+        <pingresp ntype="set">
         </pingresp>
-        <disconnect>
+
+        <disconnect ntype="set">
         </disconnect>
     </data>
 </SMG>

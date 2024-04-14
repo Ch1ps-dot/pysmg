@@ -1,6 +1,4 @@
-from smg import Smg
-from types import MethodType
-from lxml import etree
+from smg import mqtt_gen
 
 def add(self, b):
     print(b[0]+b[1])
@@ -9,11 +7,14 @@ def add(self, b):
 f = open("xml-sample/mqtttest.xml",'r')
 o = open("out",'+bw')
 src = f.read()
-p = Smg()
+p = mqtt_gen()
 p.fromstring(src)
 p.gen(o)
 
+f = open("out",'rb')
+p.send('127.0.0.1', '1234', f)
 # root = etree.fromstring(src)
 # b = root.find('.//sheader')
 # print(b.getparent())
+
 
