@@ -28,15 +28,15 @@ SML的语法规范如下：
 ### Operational Semantic
 
 除了固定的字面值字符串，SML中还有几个具有特殊语义的字段，其操作语义的表述遵从以下规则，Operation表示采用的操作，conditions表示生成需要的条件信息，generation表示生成的结果。
-$$
+```math
 Operation:\frac{conditions}{generation}
-$$
+```
 SML的语义规则如下：
-$$
+```math
 Gen:{\frac{<length>,<value>,<type>}{generation}}
 \\
 Func:{\frac{<specified-function>,<arguments>...}{computation\space result}}
-$$
+```
 
 - gen(length, value, type)：gen()表示的是一个被生成规则限制的字段，限制信息包括由length指定的字段的长度范围，由value指定的字段内字符数值范围，由type指定的字段的具体种类。其中type可以分为bits、bytes、string三种，bits指明生成的信息为由0或1表示的比特，bytes指明生成的信息是由字节组成，string指明生成的信息是一个字符串。
 - function(arg...)：function()处理的是协议中的一类特殊字段，这些字段内容生成往往依赖于其他字段的内容，例如校验和、计算其他字段的长度、用于标识报文类别的标志位等。这些字段的内容无法在描述报文规范时确定，甚至还需要采用复杂的生成规则（比如计算校验和）。因此针对不同的报文需求，需要提供不同的处理函数。
