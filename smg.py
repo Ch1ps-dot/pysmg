@@ -37,7 +37,7 @@ class Smg():
                             3. set the content of node.   
                 ref: the content of ref is the node which is referenced to.
                         !!! ref function must finish following things:
-                            1. return name of the node which is reference ti
+                            1. return name of the node which is reference to
                             2. set the content of src node with the name of dst node
 
             - The length attribute is counted at runtime. We use bit as the basic unit. Because of the priority of
