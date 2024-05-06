@@ -33,9 +33,9 @@ Operation:\frac{conditions}{generation}
 ```
 SML的语义规则如下：
 ```math
-Gen:{\frac{\<length>,\<value>,\<type\>}{generation}}
+Gen:{\frac{<length>,<value>,<type>}{generation}}
 \\
-Func:{\frac{\<specified-function>,\<arguments>...}{computation\space result}}
+Func:{\frac{<specified-function>,<arguments>...}{computation\space result}}
 ```
 
 - gen(length, value, type)：gen()表示的是一个被生成规则限制的字段，限制信息包括由length指定的字段的长度范围，由value指定的字段内字符数值范围，由type指定的字段的具体种类。其中type可以分为bits、bytes、string三种，bits指明生成的信息为由0或1表示的比特，bytes指明生成的信息是由字节组成，string指明生成的信息是一个字符串。
